@@ -29,9 +29,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        uses: microsoft/playwright-github-action@v1
-        with:
-          browser: chromium
+        run: |
+          playwright install chromium
+          playwright install-deps
 
       - name: Run API tests
         run: pytest tests/api/ -v --html=reports/report.html --self-contained-html
